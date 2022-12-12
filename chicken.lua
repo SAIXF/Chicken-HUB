@@ -27,3 +27,4 @@ end)
 Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.F, function()
 	print("You just clicked the bind")
 end)
+
