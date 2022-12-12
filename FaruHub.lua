@@ -1,16 +1,19 @@
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "FaruHub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Faru Hub", "DarkTheme")
 
+local Tab = Window:NewTab("Main")
+local Section = Tab:NewSection("Farm")
 
-local Tab = Window:MakeTab({
-	Name = "Main",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
+getgenv().Toggled = false
 
-Tab:AddToggle({
-	Name = "AutoFarm",
-	Default = false,
-	Callback = function(Value)
-		print(Value)
-	end    
-})
+local toggle = Section:NewToggle("Toggle", "Info", (state)
+    getgenv().Toggled = state
+end)
+
+game:GetService("RunService").RenderStepped:Connect(function()
+	if getgenv().Toggled then
+		toggle:UpdateToggle("Toggle On")
+	else
+		toggle:UpdateToggle("Toggle Off")
+	end
+end)
