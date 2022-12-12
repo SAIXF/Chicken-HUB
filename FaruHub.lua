@@ -1,6 +1,5 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-
-local Window = OrionLib:MakeWindow({Name = "Faru Hub", HidePremium = false, SaveConfig = true, introEnable = false})
+local Window = OrionLib:MakeWindow({Name = "FaruHub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
 
 local Tab = Window:MakeTab({
