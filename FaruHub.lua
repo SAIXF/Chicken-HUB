@@ -1,15 +1,6 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
 local Window = OrionLib:MakeWindow({Name = "Faru Hub", HidePremium = false, SaveConfig = true, introEnable = false})
-
-
-_G.autoFarm = true
-
-
-function autoFarm()
-        while _G.autoFarm == true do
-                    game:GetService("ReplicatedStorage")Remotes.Tap:FireServer()
-              end
-          end
 
 
 local Tab = Window:MakeTab({
@@ -25,18 +16,13 @@ OrionLib:MakeNotification({
 	Time = 5
 })
 
-FarmTab:AddToggle({
+Tab:AddToggle({
 	Name = "AutoFarm",
 	Default = false,
 	Callback = function(Value)
-		_G.autoFarm = Value
-        autoFarm()
+		print(Value)
 	end    
 })
-
-
-
-
 
 
 end
